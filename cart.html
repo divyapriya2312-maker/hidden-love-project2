@@ -1,0 +1,142 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cart</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background: pink;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            align-items: center;
+        }
+
+        button {
+    margin: 5px;
+    padding: 6px 12px;
+    background: #7b1c0f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+        .total {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h2>Your Cart 🛒</h2>
+
+    <div id="cart-items"></div>
+
+    <div class="total" id="total"></div>
+
+    <button onclick="goToCheckout()">Checkout</button>
+
+    <script>
+        function goToCheckout() {
+            window.location.href = "checkout.html";
+        }
+    </script>
+    <button onclick="clearCart()">Clear Cart</button>
+
+    <script>
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        function renderCart() {
+
+    let container = document.getElementById("cart-items");
+    container.innerHTML = "";
+
+    let total = 0;
+
+    if (cart.length === 0) {
+        container.innerHTML = "<h3>Your cart is empty 😢</h3>";
+        document.getElementById("total").innerText = "";
+        return;
+    }
+
+    cart.forEach((item, index) => {
+
+        let div = document.createElement("div");
+        div.classList.add("item");
+
+        div.innerHTML = `
+        <img src="${item.image}" width="60">
+
+        <div>
+            ${item.name} <br>
+            ₹${item.price}
+        </div>
+
+        <div>
+            <button onclick="changeQty(${index}, -1)">-</button>
+            ${item.qty}
+            <button onclick="changeQty(${index}, 1)">+</button>
+        </div>
+
+        <button onclick="removeItem(${index})">❌</button>
+        `;
+
+        container.appendChild(div);
+
+        // ✅ THIS IS MISSING LINE
+        total += item.price * item.qty;
+    });
+
+    document.getElementById("total").innerText = "Total: ₹" + total;
+}
+
+        function changeQty(index, change) {
+
+            cart[index].qty += change;
+
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+        }
+
+        function clearCart() {
+            localStorage.removeItem("cart");
+            cart = [];
+            renderCart();
+        }
+
+        function checkout() {
+            alert("Order placed successfully 🎉");
+            clearCart();
+        }
+
+        renderCart();
+
+
+    </script>
+
+</body>
+
+</html>

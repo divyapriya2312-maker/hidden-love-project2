@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hidden Love</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <header>
+
+        <div class="logo">HL</div>
+
+        <nav>
+            <a href="#">Home</a>
+
+            <a href="cart.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+
+            <a href="#">Menu</a>
+        </nav>
+
+
+
+    </header>
+
+    
+
+    <!-- Banner -->
+
+    <section class="banner">
+
+        <div class="slider">
+
+            <img class="slide" src="d:\hidden-love-project\images\banner1.jpg">
+            <img class="slide" src="d:\hidden-love-project\images\banner2.jpg">
+
+        </div>
+
+        <div class="banner-text">
+
+            <h2>Limited Time Offer</h2>
+
+            <h1>20% OFF</h1>
+
+            <button>Shop Now</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Summer Sale -->
+
+
+
+    <h2 class="title">Summer Sale</h2>
+
+    <section class="products">
+
+        <div class="card">
+
+
+            <img src="d:\hidden-love-project\images\Foundation.jpg">
+
+            <h3>Foundation</h3>
+
+            <div class="price">
+                <span class="new">₹799</span>
+                <span class="old">₹1000</span>
+                <span class="off">20% OFF</span>
+            </div>
+
+
+            <button onclick="addToCart('Foundation', 799, 'images/foundation.jpg')">Add to Cart</button>
+            <a href="cart.html" class="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <img src="d:\hidden-love-project\images\Fixing-Powder.jpg">
+
+            <h3>Fixing-Powder</h3>
+
+            <div class="price">
+                <span class="new">₹599</span>
+                <span class="old">₹800</span>
+                <span class="off">20% OFF</span>
+            </div>
+
+
+
+
+            <button onclick="addToCart('Fixing-Powder', 599, 'images/fixing-powder.jpg')">
+                Add to Cart
+            </button>
+            <a href="cart.html" class="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </a>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

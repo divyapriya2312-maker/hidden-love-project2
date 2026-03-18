@@ -1,0 +1,87 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Success</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #a18cd1, #fbc2eb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            width: 350px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: green;
+        }
+
+        p {
+            color: gray;
+        }
+
+        .method {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #7b1c0f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background: black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h1>🎉 Order Placed Successfully!</h1>
+        <p>Thank you for shopping ❤️</p>
+
+        <div class="method" id="payment"></div>
+
+        <a href="index.html">Back to Home</a>
+    </div>
+
+    <script>
+        let method = localStorage.getItem("paymentMethod");
+        document.getElementById("payment").innerText = "Payment: " + method;
+
+        // clear cart
+        localStorage.removeItem("cart");
+    </script>
+
+    <h2 id="method"></h2>
+
+<script>
+let method = localStorage.getItem("paymentMethod");
+document.getElementById("method").innerText = "Paid using " + method;
+</script>
+
+</body>
+
+</html>

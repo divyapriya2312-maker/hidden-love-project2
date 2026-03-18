@@ -1,0 +1,91 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Checkout</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: gray;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .upi {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .card {
+            background: #2196F3;
+            color: white;
+        }
+
+        .cod {
+            background: #ff9800;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>Payment Page 💳</h2>
+        <p>Select Payment Method:</p>
+
+        <button class="btn upi" onclick="pay('UPI')">UPI</button>
+        <button class="btn card" onclick="pay('Card')">Card</button>
+        <button class="btn cod" onclick="pay('COD')">Cash on Delivery</button>
+    </div>
+
+    <script>
+        function pay(method) {
+            localStorage.setItem("paymentMethod", method);
+            window.location.href = "success.html";
+        }
+    </script>
+
+</body>
+
+</html> 
