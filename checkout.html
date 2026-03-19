@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 
@@ -22,15 +21,7 @@
             border-radius: 15px;
             text-align: center;
             width: 300px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-        }
-
-        h2 {
-            margin-bottom: 10px;
-        }
-
-        p {
-            color: gray;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
 
         .btn {
@@ -42,7 +33,10 @@
             border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
-            transition: 0.3s;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
         }
 
         .upi {
@@ -64,19 +58,73 @@
             transform: scale(1.05);
             opacity: 0.9;
         }
+
+
+        header {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .logo {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #ff6a00, #ee0979);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-btn:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+
+        .box {
+            animation: pop 0.4s ease;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
     </style>
 
 </head>
 
 <body>
 
+
+    <a href="cart.html" class="back-btn">⬅ Back</a>
+
+    <header>
+        <a href="index.html" class="logo">HL</a>
+    </header>
+    <!-- Payment Box -->
     <div class="box">
         <h2>Payment Page 💳</h2>
         <p>Select Payment Method:</p>
 
-        <button class="btn upi" onclick="pay('UPI')">UPI</button>
-        <button class="btn card" onclick="pay('Card')">Card</button>
-        <button class="btn cod" onclick="pay('COD')">Cash on Delivery</button>
+        <button class="btn upi" onclick="pay('UPI')">💸 UPI</button>
+        <button class="btn card" onclick="pay('Card')">💳 Card</button>
+        <button class="btn cod" onclick="pay('COD')">📦 Cash on Delivery</button>
     </div>
 
     <script>
@@ -88,4 +136,4 @@
 
 </body>
 
-</html> 
+</html>
