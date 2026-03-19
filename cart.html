@@ -58,8 +58,12 @@
     <script>
 
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
 
         function renderCart() {
+
+            console.log("cart :", localStorage.getItem("cart"));
+            
 
     let container = document.getElementById("cart-items");
     container.innerHTML = "";
@@ -78,7 +82,7 @@
         div.classList.add("item");
 
         div.innerHTML = `
-        <img src="${item.image}" width="60">
+        <img src="${item.image}" alt="sample image" width="60">
 
         <div>
             ${item.name} <br>
