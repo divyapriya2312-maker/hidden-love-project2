@@ -1,5 +1,4 @@
 
-
 let slides = document.querySelectorAll(".slide");
 let index = 0;
 
@@ -65,4 +64,21 @@ function addToCart(name, price, image) {
     updateCartCount();
 
     console.log(name + " added");
+}
+
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let count = 0;
+
+    cart.forEach(item => count += item.qty);
+
+    let el = document.getElementById("cart-count");
+
+    if (el) {
+        el.innerText = count;
+
+        // 🔥 animation
+        el.classList.add("bounce");
+        setTimeout(() => el.classList.remove("bounce"), 300);
+    }
 }
