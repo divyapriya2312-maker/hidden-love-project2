@@ -29,6 +29,15 @@ header {
     font-size: 22px;
     font-weight: bold;
 }
+.logo {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.logo:hover {
+    color: yellow;
+}
 
 nav a {
     margin: 0;
