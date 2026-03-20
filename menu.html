@@ -5,6 +5,7 @@
 <head>
     <title>Menu</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
@@ -19,14 +20,42 @@
 </header>
 
 <h2 class="title">All Products</h2>
-    <img src="foundation.jpg" alt="foundation">
-    <img src="fixing-Powder.jpg" alt="Fixing Powder">
 
 <section class="products">
 
-    
+    <div class="card">
+        <img src="foundation.jpg" alt="Foundation">
+        <h3>Foundation</h3>
+
+        <div class="price">
+            <span class="new">₹799</span>
+            <span class="old">₹1000</span>
+            <span class="off">20% OFF</span>
+        </div>
+
+        <button onclick="addToCart('Foundation', 799, 'foundation.jpg')">
+            Add to Cart
+        </button>
+    </div>
+
+    <div class="card">
+        <img src="fixing-Powder.jpg" alt="Fixing Powder">
+        <h3>Fixing Powder</h3>
+
+        <div class="price">
+            <span class="new">₹599</span>
+            <span class="old">₹800</span>
+            <span class="off">20% OFF</span>
+        </div>
+
+        <button onclick="addToCart('Fixing Powder', 599, 'fixing-Powder.jpg')">
+            Add to Cart
+        </button>
+    </div>
 
 </section>
+
+<script src="script.js"></script>
 
 </body>
 </html>
