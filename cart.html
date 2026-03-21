@@ -4,91 +4,113 @@
 
 <head>
     <title>Cart</title>
-
     <style>
         body {
             font-family: Arial;
             padding: 20px;
             background: pink;
+            text-align: center;
         }
 
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+            background: transparent;
+            box-shadow: none;
+            gap: 8px;
+
+        }
+
+        /* Logo */
         .logo {
-            font-size: 22px;
             font-weight: bold;
+            font-size: 22px;
+            margin-bottom: 10px;
             text-decoration: none;
             color: black;
         }
 
-        .item {
-            display: flex;
-            justify-content: space-between;
-            margin: 15px 0;
-            align-items: center;
-            background: white;
-            padding: 10px;
-            border-radius: 10px;
-        }
-
-        button {
-            margin: 5px;
-            padding: 6px 12px;
-            background: #7b1c0f;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .total {
-            font-size: 22px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
+        /* Back button */
         .back-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
             background: linear-gradient(45deg, #ff6a00, #ee0979);
             color: white;
             padding: 8px 15px;
             border-radius: 20px;
             text-decoration: none;
             font-size: 14px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .back-btn:hover {
-            transform: scale(1.1);
-            opacity: 0.9;
-        }
-
-        header {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        /* CART ITEMS */
+        #cart-items {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         #cart-items h3 {
-            text-align: center;
             color: gray;
             margin-top: 50px;
+            font-size: 18px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px 0;
+            width: 80%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* IMAGE */
+        .item img {
+            border-radius: 8px;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+
+        /* BUTTON */
+        button {
+            margin: 10px 5px;
+            padding: 6px 12px;
+            background: #7b1c0f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+            transition: 0.2s;
         }
 
         button:first-of-type {
             background: green;
         }
-    </style>
 
-</head>
+        /* TOTAL */
+        .total {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
 
 <body>
 
 
 
-    <a href="index.html" class="back-btn">⬅ Back</a>
-
     <header>
         <a href="index.html" class="logo">HL</a>
+        <a href="index.html" class="back-btn">⬅ Back</a>
     </header>
     <br><br>
 
