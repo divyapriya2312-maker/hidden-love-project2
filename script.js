@@ -91,6 +91,6 @@ function updateProductQty() {
         }
     });
 }
-
+let id = "qty-" + item.name;
 
 
