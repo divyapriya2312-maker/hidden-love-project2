@@ -60,6 +60,23 @@ function addToCart(name, price, image) {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     updateCartCount();
+    updateProductQty();
 
     console.log(name + " added");
 }
+function updateProductQty() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.forEach(item => {
+        let id = "qty-" + item.name;
+        let el = document.getElementById(id);
+
+        if (el) {
+            el.innerText = item.qty;
+        }
+    });
+}
+window.onload = function () {
+    updateCartCount();
+    updateProductQty(); // 🔥 important
+};
