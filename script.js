@@ -63,18 +63,7 @@ function addToCart(name, price, image) {
 
     console.log(name + " added");
 }
-function updateProductQty() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    cart.forEach(item => {
-        let id = "qty-" + item.name;
-        let el = document.getElementById(id);
-
-        if (el) {
-            el.innerText = item.qty;
-        }
-    });
-}
 window.onload = function () {
     updateCartCount();
     updateProductQty(); 
@@ -91,6 +80,6 @@ function updateProductQty() {
         }
     });
 }
-let id = "qty-" + item.name;
+
 
 
