@@ -79,5 +79,18 @@ window.onload = function () {
     updateCartCount();
     updateProductQty(); 
 };
-let id = "qty-" + item.name.toLowerCase().replace(/\s/g, '');
+function updateProductQty() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.forEach(item => {
+        let id = "qty-" + item.name.toLowerCase().replace(/[^a-z]/g, "");
+        let el = document.getElementById(id);
+
+        if (el) {
+            el.innerText = item.qty;
+        }
+    });
+}
+
+
 
