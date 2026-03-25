@@ -18,14 +18,13 @@ if (slides.length > 0) {
 }
 
 
-// ✅ SINGLE FUNCTION மட்டும் வை
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let count = 0;
 
     cart.forEach(item => count += item.qty);
 
-    let el = document.getElementById("cart-count"); // 🔥 முக்கியம்
+    let el = document.getElementById("cart-count"); 
 
     if (el) {
         el.innerText = count;
@@ -78,5 +77,7 @@ function updateProductQty() {
 }
 window.onload = function () {
     updateCartCount();
-    updateProductQty(); // 🔥 important
+    updateProductQty(); 
 };
+let id = "qty-" + item.name.toLowerCase().replace(/\s/g, '');
+
