@@ -174,13 +174,15 @@ function addToCart() {
 
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let count = 0;
 
-    cart.forEach(item => count += item.qty);
+    let current = cart.find(
+        item => item.name.toLowerCase() === product.name.toLowerCase()
+    );
+
+    let count = current ? current.qty : 0;
 
     document.getElementById("cart-count").innerText = count;
 }
-
 function goBack() {
     window.history.back();
 }
