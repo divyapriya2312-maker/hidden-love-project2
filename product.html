@@ -146,21 +146,21 @@
 
 <script>
 let product = JSON.parse(localStorage.getItem("selectedProduct"));
-
 if(product){
     document.getElementById("p-name").innerText = product.name;
     document.getElementById("p-price").innerText = "₹" + product.price;
     document.getElementById("p-img").src = product.image;
 
-    // 🔥 convert | → bullet points
-    let descArr = product.desc.split("|");
+    if(product.desc){  // 🔥 IMPORTANT CHECK
+        let descArr = product.desc.split("|");
 
-    let descHTML = "";
-    descArr.forEach(d => {
-        descHTML += `<li>${d.trim()}</li>`;
-    });
+        let descHTML = "";
+        descArr.forEach(d => {
+            descHTML += `<li>${d.trim()}</li>`;
+        });
 
-    document.getElementById("p-desc").innerHTML = descHTML;
+        document.getElementById("p-desc").innerHTML = descHTML;
+    }
 }
 function addToCart() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -198,6 +198,7 @@ function addToCart() {
         el.innerText = count;
     }
 }
+    updateCartCount();
 </script>
 
 </body>
