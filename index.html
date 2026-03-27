@@ -68,66 +68,55 @@
 
     <section class="products">
 
-        <div class="card">
+       <div class="card">
 
+    <img src="foundation.jpg" alt="foundation"
+         onclick="goToProduct('Foundation', 799, 'foundation.jpg')"
+         style="cursor:pointer;">
 
-            <img src="foundation.jpg" alt="foundation">
+    <h3 onclick="goToProduct('Foundation', 799, 'foundation.jpg')"
+        style="cursor:pointer;">
+        Foundation
+    </h3>
 
-            <h3>Foundation</h3>
+    <div class="price">
+        <span class="new">₹799</span>
+        <span class="old">₹1000</span>
+        <span class="off">20% OFF</span>
+    </div>
 
-            <div class="price">
-                <span class="new">₹799</span>
-                <span class="old">₹1000</span>
-                <span class="off">20% OFF</span>
-            </div>
+    <button onclick="addToCart('Foundation', 799, 'foundation.jpg')">
+        Add to Cart
+    </button>
 
+    <span id="qty-foundation">0</span>
 
-            <button onclick="addToCart('Foundation', 799, 'foundation.jpg')">Add to Cart</button>
-            <img src="foundation.jpg" onclick="goToProduct('Foundation', 799, 'foundation.jpg')" style="cursor:pointer;">
-
-<h3 onclick="goToProduct('Foundation', 799, 'foundation.jpg')" style="cursor:pointer;">
-    Foundation
-</h3>
-            <span id="qty-foundation">0</span>
-            <a href="cart.html" class="cart-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-               
-            </a>
-
-        </div>
-
+</div>
 
         <div class="card">
 
-            <img src="fixing-Powder.jpg" alt="fixing powder">
+    <img src="fixing-Powder.jpg" alt="fixing powder"
+         onclick="goToProduct('Fixing powder', 599, 'fixing-Powder.jpg')"
+         style="cursor:pointer;">
 
-            <h3>Fixing-Powder</h3>
+    <h3 onclick="goToProduct('Fixing powder', 599, 'fixing-Powder.jpg')"
+        style="cursor:pointer;">
+        Fixing-Powder
+    </h3>
 
-            <div class="price">
-                <span class="new">₹599</span>
-                <span class="old">₹800</span>
-                <span class="off">20% OFF</span>
-            </div>
+    <div class="price">
+        <span class="new">₹599</span>
+        <span class="old">₹800</span>
+        <span class="off">20% OFF</span>
+    </div>
 
+    <button onclick="addToCart('Fixing powder', 599, 'fixing-Powder.jpg')">
+        Add to Cart
+    </button>
 
+    <span id="qty-fixingpowder">0</span>
 
-
-            <button onclick="addToCart('Fixing powder', 599, 'fixing-Powder.jpg')">
-                Add to Cart
-            </button>
-            <img src="fixing-Powder.jpg" onclick="goToProduct('Fixing powder', 599, 'fixing-Powder.jpg')" style="cursor:pointer;">
-
-<h3 onclick="goToProduct('Fixing powder', 599, 'fixing-Powder.jpg')" style="cursor:pointer;">
-    Fixing-Powder
-</h3>
-            <span id="qty-fixingpowder">0</span>
-            <a href="cart.html" class="cart-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-               
-            </a>
-
-        </div>
-
+</div>
     </section>
 
     <script src="script.js"></script>
