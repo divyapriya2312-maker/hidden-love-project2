@@ -85,9 +85,10 @@ function goToProduct(name, price, image, desc) {
         name,
         price,
         image,
-        desc
+        desc   
     }));
 
     window.location.href = "product.html";
 }
+
 
