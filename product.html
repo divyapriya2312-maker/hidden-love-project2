@@ -115,6 +115,7 @@
     <h1 id="p-name"></h1>
 
     <h2 id="p-price"></h2>
+    <p id="p-desc"></p>
 
     <button class="btn" onclick="addToCart()">Add to Cart</button>
 
@@ -129,6 +130,8 @@ if(product){
     document.getElementById("p-name").innerText = product.name;
     document.getElementById("p-price").innerText = "₹" + product.price;
     document.getElementById("p-img").src = product.image;
+
+    document.getElementById("p-desc").innerText = product.desc;
 }
 
 function addToCart() {
