@@ -132,6 +132,11 @@
 
     <button class="btn" onclick="addToCart()">Add to Cart</button>
 
+    <a href="cart.html" class="cart-icon">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cart-count">0</span>
+</a>
+
     <button class="btn" onclick="goBack()">⬅ Back</button>
 
 
@@ -177,11 +182,21 @@ function addToCart() {
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
-   
-}
-
-function goBack() {
+    updateCartCount(); // 🔥 IMPORTANT
+}function goBack() {
     window.history.back();
+}
+    function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let count = 0;
+
+    cart.forEach(item => count += item.qty);
+
+    let el = document.getElementById("cart-count");
+
+    if (el) {
+        el.innerText = count;
+    }
 }
 </script>
 
