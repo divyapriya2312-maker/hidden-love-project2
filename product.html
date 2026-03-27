@@ -97,6 +97,17 @@
     text-decoration: none;
     font-size: 14px;
 }
+        #p-desc {
+    text-align: left;
+    margin-top: 10px;
+    color: #555;
+    font-size: 14px;
+}
+
+#p-desc li {
+    margin-bottom: 6px;
+}
+        
     </style>
 </head>
 
@@ -115,9 +126,14 @@
     <h1 id="p-name"></h1>
 
     <h2 id="p-price"></h2>
-    <p id="p-desc"></p>
+
+    <!-- 🔥 Description -->
+    <ul id="p-desc"></ul>
 
     <button class="btn" onclick="addToCart()">Add to Cart</button>
+
+    <button class="btn" onclick="goBack()">⬅ Back</button>
+
 
     <p>Best quality product with amazing offer 🎉</p>    
 
@@ -131,9 +147,16 @@ if(product){
     document.getElementById("p-price").innerText = "₹" + product.price;
     document.getElementById("p-img").src = product.image;
 
-    document.getElementById("p-desc").innerText = product.desc;
-}
+    // 🔥 convert | → bullet points
+    let descArr = product.desc.split("|");
 
+    let descHTML = "";
+    descArr.forEach(d => {
+        descHTML += `<li>${d.trim()}</li>`;
+    });
+
+    document.getElementById("p-desc").innerHTML = descHTML;
+}
 function addToCart() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
