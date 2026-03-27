@@ -80,6 +80,14 @@ function updateProductQty() {
         }
     });
 }
+function goToProduct(name, price, image) {
+    localStorage.setItem("selectedProduct", JSON.stringify({
+        name,
+        price,
+        image
+    }));
 
+    window.location.href = "product.html";
+}
 
 
