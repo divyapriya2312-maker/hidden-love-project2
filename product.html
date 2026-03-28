@@ -156,11 +156,12 @@ function addToCart() {
         existing.qty += 1;
     } else {
         cart.push({
-            name: product.name,
-            price: product.price,
-            image: product.image,
-            qty: 1
-        });
+             name: product.name,
+             price: product.price,
+             image: product.image,
+             description: product.description, 
+             qty: 1
+});
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
