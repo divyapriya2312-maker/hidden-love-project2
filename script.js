@@ -41,6 +41,8 @@ updateCartCount();
 
    function addToCart(name, price, image, description) {
 
+    function addToCart(name, price, image, description) {
+
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     let existing = cart.find(item => item.name === name);
@@ -62,12 +64,11 @@ updateCartCount();
 
     localStorage.setItem("cart", JSON.stringify(cart));
 }
-    updateCartCount();
-    updateProductQty();
+updateCartCount();
+updateProductQty();
 
-    console.log(name + " added");
+console.log(name + " added");
 }
-
 window.onload = function () {
     updateCartCount();
     updateProductQty(); 
