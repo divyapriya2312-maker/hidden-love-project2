@@ -152,10 +152,20 @@
 
                 div.innerHTML = `
                <img src="${item.image}" width="60"
-                 onclick="goToProduct('${item.name}', ${item.price}, '${item.image}')"
+                 onclick='goToProduct(
+    ${JSON.stringify(item.name)}, 
+    ${item.price}, 
+    ${JSON.stringify(item.image)}, 
+    ${JSON.stringify(item.description)}
+)'
                  style="cursor:pointer;">
 
-             <div onclick="goToProduct('${item.name}', ${item.price}, '${item.image}')"
+             <div onclick='goToProduct(
+    ${JSON.stringify(item.name)}, 
+    ${item.price}, 
+    ${JSON.stringify(item.image)}, 
+    ${JSON.stringify(item.description)}
+)'
                 style="cursor:pointer;">
                 ${item.name} <br>
                 ₹${item.price}
