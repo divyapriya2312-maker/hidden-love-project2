@@ -170,12 +170,13 @@ function addToCart() {
 function updateCartCount() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    let total = 0;
-    cart.forEach(item => {
-        total += item.qty;
-    });
+    let current = cart.find(item =>
+        item.name.toLowerCase() === product.name.toLowerCase()
+    );
 
-    document.getElementById("cart-count").innerText = total;
+    let count = current ? current.qty : 0;
+
+    document.getElementById("cart-count").innerText = count;
 }
 
 // initial load
