@@ -34,7 +34,7 @@ function updateCartCount() {
     }
 }
 
-updateCartCount();
+
 function addToCart(name, price, image, description) {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
