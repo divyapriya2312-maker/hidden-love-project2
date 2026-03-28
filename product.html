@@ -134,17 +134,20 @@ if (product) {
     document.getElementById("p-price").innerText = "₹" + product.price;
     document.getElementById("p-img").src = product.image;
 
-    // ✅ Nice description format
-    let descArr = product.description.split("|");
-    let html = "";
+    // ✅ SAFE CHECK
+    if (product.description) {
+        let descArr = product.description.split("|");
+        let html = "";
 
-    descArr.forEach(item => {
-        html += "✔ " + item + "<br>";
-    });
+        descArr.forEach(item => {
+            html += "✔ " + item + "<br>";
+        });
 
-    document.getElementById("p-desc").innerHTML = html;
+        document.getElementById("p-desc").innerHTML = html;
+    } else {
+        document.getElementById("p-desc").innerText = "No description available";
+    }
 }
-
 function addToCart() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
