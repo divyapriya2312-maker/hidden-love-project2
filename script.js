@@ -35,9 +35,7 @@ function updateCartCount() {
 }
 
 updateCartCount();
-
-
-    function addToCart(name, price, image, description) {
+function addToCart(name, price, image, description) {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -45,26 +43,26 @@ updateCartCount();
 
     if (existing) {
         existing.qty += 1;
-
-        // ✅ force update description
         existing.description = description;
     } else {
         cart.push({
-            name,
-            price,
-            image,
-            description,
+            name: name,
+            price: price,
+            image: image,
+            description: description,
             qty: 1
         });
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-}
-updateCartCount();
-updateProductQty();
 
-console.log(name + " added");
+    updateCartCount();
+    updateProductQty();
+
+    console.log(name + " added");
 }
+
+   
 window.onload = function () {
     updateCartCount();
     updateProductQty(); 
