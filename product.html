@@ -6,128 +6,131 @@
 <head>
     <title>Product Details</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #ffe4e1, #fff);
+            background: #e6cfcf;
+        }
+
+        /* TOP LEFT */
+        .top-bar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 10px;
+            background: linear-gradient(45deg, #ff6a00, #ee0979);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        /* CENTER BOX */
+        .container {
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
 
         .product-box {
-            background: white;
+            background: #f2f2f2;
             padding: 25px;
             border-radius: 20px;
             width: 320px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: fadeIn 0.6s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .product-box img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
+            width: 220px;
             border-radius: 15px;
-            margin-bottom: 15px;
         }
 
         #p-name {
-            font-size: 22px;
-            margin: 10px 0;
+            margin-top: 10px;
+            font-size: 20px;
         }
 
         #p-price {
             color: #ee0979;
             font-size: 20px;
-            margin-bottom: 15px;
+            margin: 10px 0;
         }
 
+        /* BUTTONS */
         .btn {
             background: linear-gradient(45deg, #ff6a00, #ee0979);
             color: white;
             border: none;
-            padding: 10px 20px;
-            margin: 5px;
+            padding: 8px 18px;
             border-radius: 20px;
             cursor: pointer;
-            transition: 0.3s;
+            margin: 5px;
         }
 
-        .btn:hover {
-            transform: scale(1.1);
-        }
-
-        .back {
-            display: block;
+        /* CART */
+        .cart {
             margin-top: 10px;
-            text-decoration: none;
-            color: gray;
+            display: inline-block;
+            position: relative;
         }
 
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(20px);}
-            to {opacity: 1; transform: translateY(0);}
+        .cart i {
+            font-size: 20px;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: purple;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 14px;
         }
     </style>
 </head>
 
-<body>
-
-<div class="product-box">
-
-    <img id="p-img">
-
-    <h1 id="p-name"></h1>
-
-    <h2 id="p-price"></h2>
-
-    <button class="btn" onclick="addToCart()">Add to Cart</button>
-
-    <button class="btn" onclick="goBack()">⬅ Back</button>
-
-</div>
-
-<script>
-let product = JSON.parse(localStorage.getItem("selectedProduct"));
-
-if(product){
-    document.getElementById("p-name").innerText = product.name;
-    document.getElementById("p-price").innerText = "₹" + product.price;
-    document.getElementById("p-img").src = product.image;
-}
-
-function addToCart() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    let existing = cart.find(
-        item => item.name.toLowerCase() === product.name.toLowerCase()
-    );
-
-    if (existing) {
-        existing.qty += 1;
-    } else {
-        cart.push({
-            name: product.name,
-            price: product.price,
-            image: product.image,
-            qty: 1
-        });
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    alert("Added to Cart ✅");
-}
-
-function goBack() {
-    window.history.back();
-}
-</script>
-
+<body> <!-- LEFT TOP -->
+    <div class="top-bar">
+        <div class="logo">HL</div> <a href="index.html" class="back-btn">⬅ Back</a>
+    </div> <!-- CENTER -->
+    <div class="container">
+        <div class="product-box"> <img id="p-img">
+            <h2 id="p-name"></h2>
+            <h3 id="p-price"></h3> <button class="btn" onclick="addToCart()">Add to Cart</button> <a href="cart.html"
+                class="cart"> <i class="fa-solid fa-cart-shopping"></i> <span id="cart-count">0</span> </a>
+            <p>Best quality product with amazing offer 🎉</p>
+        </div>
+    </div>
+    <script> let product = JSON.parse(localStorage.getItem("selectedProduct")); if (product) { document.getElementById("p-name").innerText = product.name; document.getElementById("p-price").innerText = "₹" + product.price; document.getElementById("p-img").src = product.image; } function addToCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let existing = cart.find(item => item.name.toLowerCase() === product.name.toLowerCase()); if (existing) { existing.qty += 1; } else {
+                cart.push({
+                    name: product.name, price: product.price, image: product.image, qty: 1
+                });
+            } localStorage.setItem("cart", JSON.stringify(cart)); updateCartCount();
+        } function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || []; let current = cart.find(item => item.name.toLowerCase() === product.name.toLowerCase()); let count = current ? current.qty : 0; document.getElementById("cart-count").innerText = count;
+        } function goBack() { window.history.back(); } if (product.desc) { let descArr = product.desc.split("|"); } updateCartCount(); </script>
 </body>
+
 </html>
