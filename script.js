@@ -37,16 +37,19 @@ function updateCartCount() {
 updateCartCount();
 
 
-function addToCart(name, price, image, description) {
+
+
+   function addToCart(name, price, image, description) {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    let existing = cart.find(
-        item => item.name.toLowerCase() === name.toLowerCase()
-    );
+    let existing = cart.find(item => item.name === name);
 
     if (existing) {
         existing.qty += 1;
+
+        // ✅ force update description
+        existing.description = description;
     } else {
         cart.push({
             name,
@@ -58,7 +61,7 @@ function addToCart(name, price, image, description) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-
+}
     updateCartCount();
     updateProductQty();
 
